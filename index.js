@@ -1,3 +1,4 @@
+require('dotenv').config
 const cors = require("cors")
 const expess = require('express')
 const formidable = require('express-formidable')
@@ -458,7 +459,7 @@ app.get('/', (req, res) => {
 app.get("*", (req, res) => {
     res.status(400).json({error: "Page not found"})
 })
-const port = 4000
+const port = process.env.PORT
 app.listen(port, ()=> {
     console.log(`server started at port: ${port} ...`)
 })
